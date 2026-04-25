@@ -1,0 +1,36 @@
+{
+  "irVersion": "1.0",
+  "project": "omnistorage",
+  "repository": "https://github.com/plexusone/omnistorage",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-04-25",
+      "highlights": [
+        { "description": "Initial release of OmniStorage aggregator package" },
+        { "description": "Auto-registers all provider backends for unified storage access" }
+      ],
+      "added": [
+        { "description": "Aggregator package re-exporting core interfaces from omnistorage-core", "commit": "5043ee0" },
+        { "description": "Auto-registration of S3 backend from omni-aws", "commit": "5043ee0" },
+        { "description": "Auto-registration of GitHub Releases backend from omni-github", "commit": "5043ee0" },
+        { "description": "Auto-registration of GCS and Google Drive backends from omni-google", "commit": "5043ee0" }
+      ],
+      "documentation": [
+        { "description": "README with quick start and backend reference", "commit": "b395b36" }
+      ],
+      "internal": [
+        { "description": "Add LICENSE (MIT)", "commit": "ade6f81" },
+        { "description": "Add .gitignore", "commit": "95461df" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/plexusone/omnistorage-core` v0.3.0", "commit": "5043ee0" },
+        { "description": "`github.com/plexusone/omni-aws/omnistorage` v0.1.0", "commit": "5043ee0" },
+        { "description": "`github.com/plexusone/omni-github` v0.2.0", "commit": "5043ee0" },
+        { "description": "`github.com/plexusone/omni-google/omnistorage` v0.2.0", "commit": "5043ee0" }
+      ]
+    }
+  ]
+}
