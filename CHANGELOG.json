@@ -6,6 +6,21 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.1.1",
+      "date": "2026-04-25",
+      "highlights": [
+        { "description": "Update to consolidated provider modules" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/plexusone/omni-aws` v0.7.0 (was omni-aws/omnistorage v0.1.0)" },
+        { "description": "`github.com/plexusone/omni-github` v0.3.0 (was v0.2.0)" },
+        { "description": "`github.com/plexusone/omni-google` v0.3.0 (was omni-google/omnistorage v0.2.0)" }
+      ],
+      "changed": [
+        { "description": "Update omni-github backend import path to `.../omnistorage/backend/github`" }
+      ]
+    },
+    {
       "version": "v0.1.0",
       "date": "2026-04-25",
       "highlights": [
