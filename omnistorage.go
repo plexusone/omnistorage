@@ -36,7 +36,7 @@ import (
 
 	// Import backends for init() registration
 	_ "github.com/plexusone/omni-aws/omnistorage/backend/s3"
-	_ "github.com/plexusone/omni-github/backend/github"
+	_ "github.com/plexusone/omni-github/omnistorage/backend/github"
 	_ "github.com/plexusone/omni-google/omnistorage/backend/drive"
 	_ "github.com/plexusone/omni-google/omnistorage/backend/gcs"
 )

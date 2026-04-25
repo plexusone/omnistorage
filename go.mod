@@ -3,9 +3,9 @@ module github.com/plexusone/omnistorage
 go 1.26.0
 
 require (
-	github.com/plexusone/omni-aws/omnistorage v0.1.0
-	github.com/plexusone/omni-github v0.2.0
-	github.com/plexusone/omni-google/omnistorage v0.2.0
+	github.com/plexusone/omni-aws v0.7.0
+	github.com/plexusone/omni-github v0.3.0
+	github.com/plexusone/omni-google v0.3.0
 	github.com/plexusone/omnistorage-core v0.3.0
 )
 
