@@ -6,6 +6,22 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.2.0",
+      "date": "2026-05-03",
+      "highlights": [
+        { "description": "All 9 storage backends now included: 5 core + 4 cloud" },
+        { "description": "Key-value storage (kvs) interfaces re-exported" }
+      ],
+      "added": [
+        { "description": "Core backends auto-registered: channel, dropbox, file, memory, sftp", "commit": "c851a2f" },
+        { "description": "KVS interface re-exports: Store, ListableStore, DocumentStore", "commit": "d614f9b" },
+        { "description": "KVS backend wrappers: `kvs/memory` and `kvs/sqlite`", "commit": "d614f9b" }
+      ],
+      "dependencies": [
+        { "description": "Update `github.com/plexusone/omnistorage-core` from v0.3.0 to v0.4.0", "commit": "7cc5b4a" }
+      ]
+    },
+    {
       "version": "v0.1.1",
       "date": "2026-04-25",
       "highlights": [

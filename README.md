@@ -51,16 +51,50 @@ backend, err := omnistorage.Open("s3", map[string]string{
 
 ## Included Backends
 
+All 9 backends are automatically registered when you import this package:
+
+### Core Backends (from omnistorage-core)
+
+| Backend | Registry Name | Description |
+|---------|---------------|-------------|
+| File | `file` | Local filesystem storage |
+| Memory | `memory` | In-memory storage (testing) |
+| Channel | `channel` | Go channel-based IPC |
+| SFTP | `sftp` | SSH file transfer |
+| Dropbox | `dropbox` | Dropbox cloud storage |
+
+### Cloud Backends (from omni-* packages)
+
 | Backend | Provider | Registry Name |
 |---------|----------|---------------|
 | Amazon S3 | [omni-aws](https://github.com/plexusone/omni-aws) | `s3` |
 | GitHub Releases | [omni-github](https://github.com/plexusone/omni-github) | `github` |
 | Google Cloud Storage | [omni-google](https://github.com/plexusone/omni-google) | `gcs` |
-| Google Drive | [omni-google](https://github.com/plexusone/omni-google) | `gdrive` |
+| Google Drive | [omni-google](https://github.com/plexusone/omni-google) | `drive` |
+
+## Key-Value Storage
+
+KVS interfaces are also re-exported for session state, caching, and structured data:
+
+```go
+import "github.com/plexusone/omnistorage/kvs/sqlite"
+
+store, _ := sqlite.New(sqlite.Config{Path: "data.db"})
+store.Set(ctx, "session:123", data, time.Hour)
+```
 
 ## Minimal Dependencies
 
-For minimal dependencies, import [omnistorage-core](https://github.com/plexusone/omnistorage-core) directly and only the specific provider backends you need:
+For minimal dependencies, import [omnistorage-core](https://github.com/plexusone/omnistorage-core) directly:
+
+```go
+import "github.com/plexusone/omnistorage-core"
+
+// Gets: file, memory, channel, sftp, dropbox (no cloud SDKs)
+backend, err := omnistorage.Open("file", map[string]string{"root": "/data"})
+```
+
+Or import only specific backends:
 
 ```go
 import (
