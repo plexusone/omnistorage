@@ -24,17 +24,29 @@
 //
 // For session state, caching, and structured data:
 //
-//	import "github.com/plexusone/omnistorage-core/kvs/backend/sqlite"
+//	import (
+//	    "github.com/plexusone/omnistorage"
+//	    "github.com/plexusone/omnistorage/kvs/sqlite"
+//	)
 //
 //	store, _ := sqlite.New(sqlite.Config{Path: "data.db"})
 //	store.Set(ctx, "session:123", data, time.Hour)
+//
+// The kvs.Store interface is re-exported as omnistorage.Store.
 package omnistorage
 
 import (
 	// Re-export core object storage types
 	"github.com/plexusone/omnistorage-core/object"
 
-	// Import backends for init() registration
+	// Import core backends for init() registration
+	_ "github.com/plexusone/omnistorage-core/object/backend/channel"
+	_ "github.com/plexusone/omnistorage-core/object/backend/dropbox"
+	_ "github.com/plexusone/omnistorage-core/object/backend/file"
+	_ "github.com/plexusone/omnistorage-core/object/backend/memory"
+	_ "github.com/plexusone/omnistorage-core/object/backend/sftp"
+
+	// Import cloud backends for init() registration
 	_ "github.com/plexusone/omni-aws/omnistorage/backend/s3"
 	_ "github.com/plexusone/omni-github/omnistorage/backend/github"
 	_ "github.com/plexusone/omni-google/omnistorage/backend/drive"
