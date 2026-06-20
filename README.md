@@ -74,13 +74,86 @@ All 9 backends are automatically registered when you import this package:
 
 ## Key-Value Storage
 
-KVS interfaces are also re-exported for session state, caching, and structured data:
+KVS interfaces are re-exported for caching, state management, and structured data:
+
+### SQLite Backend
 
 ```go
 import "github.com/plexusone/omnistorage/kvs/sqlite"
 
 store, _ := sqlite.New(sqlite.Config{Path: "data.db"})
-store.Set(ctx, "session:123", data, time.Hour)
+store.Set(ctx, "user:123", userData, 24*time.Hour)
+```
+
+### Redis Backend
+
+```go
+import "github.com/plexusone/omnistorage/kvs/redis"
+
+store, _ := redis.New(redis.Config{Addr: "localhost:6379"})
+store.Set(ctx, "cache:key", data, time.Hour)
+```
+
+### In-Memory Backend
+
+```go
+import "github.com/plexusone/omnistorage/kvs/memory"
+
+store := memory.New()
+store.Set(ctx, "temp:key", data, 5*time.Minute)
+```
+
+## Session Storage
+
+Secure, backend-agnostic server-side session management with size limits, JSON validation, and observability hooks:
+
+### In-Memory Sessions (Development)
+
+```go
+import (
+    "github.com/plexusone/omnistorage/session"
+    "github.com/plexusone/omnistorage/session/backend/memory"
+)
+
+store := memory.New()
+sess := session.NewSession("user-123")
+store.Save(ctx, sess)
+```
+
+### KVS-Backed Sessions (Production)
+
+Use any KVS backend (Redis, SQLite) for persistent sessions:
+
+```go
+import (
+    "github.com/plexusone/omnistorage/session"
+    "github.com/plexusone/omnistorage/session/backend/kvs"
+    "github.com/plexusone/omnistorage/kvs/redis"
+)
+
+redisStore, _ := redis.New(redis.DefaultConfig())
+sessionStore := kvs.New(redisStore)
+
+sess := session.NewSession("user-123")
+sessionStore.Save(ctx, sess)
+```
+
+### Session Controls
+
+Add size limits and violation handling:
+
+```go
+import "github.com/plexusone/omnistorage/session/backend/memory"
+
+store := memory.NewWithControls(
+    session.WithControls(session.Config{
+        MaxSessionSize: 1 << 20, // 1MB limit
+        MaxSessions:    1000,
+    }),
+    session.WithViolationHandler(func(e session.ViolationEvent) {
+        log.Printf("session violation: %s", e.Type)
+    }),
+)
 ```
 
 ## Minimal Dependencies
@@ -110,10 +183,11 @@ backend, err := object.Open("s3", map[string]string{
 
 ## Documentation
 
-- [omnistorage-core](https://github.com/plexusone/omnistorage-core) - Core interfaces and types
+- [omnistorage-core](https://github.com/plexusone/omnistorage-core) - Core interfaces (object, kvs, session)
 - [omni-aws](https://github.com/plexusone/omni-aws) - AWS S3 backend
 - [omni-github](https://github.com/plexusone/omni-github) - GitHub Releases backend
 - [omni-google](https://github.com/plexusone/omni-google) - Google Cloud Storage and Google Drive backends
+- [pkg.go.dev](https://pkg.go.dev/github.com/plexusone/omnistorage) - API reference
 
 ## License
 
