@@ -56,15 +56,15 @@ const (
 
 // Re-export functions.
 var (
-	NewSession        = session.NewSession
-	GenerateSessionID = session.GenerateSessionID
-	DefaultConfig     = session.DefaultConfig
-	WithControls      = session.WithControls
-	WithLogger        = session.WithLogger
+	NewSession           = session.NewSession
+	GenerateSessionID    = session.GenerateSessionID
+	DefaultConfig        = session.DefaultConfig
+	WithControls         = session.WithControls
+	WithLogger           = session.WithLogger
 	WithViolationHandler = session.WithViolationHandler
-	NewSessionError   = session.NewSessionError
-	ErrorCode         = session.ErrorCode
-	ErrorDetails      = session.ErrorDetails
+	NewSessionError      = session.NewSessionError
+	ErrorCode            = session.ErrorCode
+	ErrorDetails         = session.ErrorDetails
 )
 
 // Re-export constants.
