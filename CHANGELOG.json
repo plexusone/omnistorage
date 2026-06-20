@@ -6,6 +6,23 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.3.0",
+      "date": "2026-06-20",
+      "highlights": [
+        { "description": "Redis KVS backend for production caching and state management" },
+        { "description": "Session storage with backend-agnostic server-side session management" }
+      ],
+      "added": [
+        { "description": "Redis KVS backend re-export from omnistorage-core", "commit": "d363ef1" },
+        { "description": "Session storage interface re-export with `session.Store`, `session.Session`", "commit": "6ab24bb" },
+        { "description": "In-memory session backend at `session/backend/memory`", "commit": "6ab24bb" },
+        { "description": "KVS-backed session backend at `session/backend/kvs`", "commit": "6ab24bb" }
+      ],
+      "documentation": [
+        { "description": "README updated with Redis KVS and Session Storage sections", "commit": "6700da0" }
+      ]
+    },
+    {
       "version": "v0.2.0",
       "date": "2026-05-03",
       "highlights": [
