@@ -1,9 +1,9 @@
 module github.com/plexusone/omnistorage
 
-go 1.26.0
+go 1.26.4
 
 require (
-	github.com/plexusone/omni-aws v0.8.2
+	github.com/plexusone/omni-aws v0.9.0
 	github.com/plexusone/omni-github v0.3.1
 	github.com/plexusone/omni-google v0.6.1
 	github.com/plexusone/omnistorage-core v0.5.0
@@ -39,7 +39,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.31.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.36.6 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.43.3 // indirect
-	github.com/aws/smithy-go v1.27.2 // indirect
+	github.com/aws/smithy-go v1.27.3 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
