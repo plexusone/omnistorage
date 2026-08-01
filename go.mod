@@ -3,7 +3,7 @@ module github.com/plexusone/omnistorage
 go 1.26.4
 
 require (
-	github.com/plexusone/omni-aws v0.9.0
+	github.com/plexusone/omni-aws v0.10.0
 	github.com/plexusone/omni-github v0.5.0
 	github.com/plexusone/omni-google v0.7.0
 	github.com/plexusone/omnistorage-core v0.5.0
@@ -87,8 +87,8 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260630182238-925bb5da69e7 // indirect
 	google.golang.org/grpc v1.82.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
-	modernc.org/libc v1.73.5 // indirect
+	modernc.org/libc v1.74.1 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
-	modernc.org/sqlite v1.53.0 // indirect
+	modernc.org/sqlite v1.54.0 // indirect
 )
