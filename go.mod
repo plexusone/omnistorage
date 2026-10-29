@@ -6,7 +6,7 @@ require (
 	github.com/plexusone/omni-aws v0.11.0
 	github.com/plexusone/omni-github v0.6.1
 	github.com/plexusone/omni-google v0.7.0
-	github.com/plexusone/omnistorage-core v0.5.2
+	github.com/plexusone/omnistorage-core v0.6.0
 )
 
 require (
